@@ -1,0 +1,41 @@
+<%- include('partials/header', { title }) %>
+
+<section class="hero">
+  <h1>Login</h1>
+  <p>Acesse sua conta para registrar descartes e acompanhar seus dados.</p>
+</section>
+
+<section class="auth-box card">
+  <div id="mensagemLogin"></div>
+  <form id="loginForm">
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" value="demo@glazed.com" required>
+    </div>
+    <div class="form-group">
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" name="senha" value="123456" required>
+    </div>
+    <button class="btn btn-primary" type="submit">Entrar</button>
+    <a class="btn btn-secondary" href="/cadastro">Criar conta</a>
+  </form>
+  <p class="small">Usuário de demonstração: demo@glazed.com | senha: 123456</p>
+</section>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const box = document.getElementById('mensagemLogin');
+  box.innerHTML = '';
+  try {
+    const dados = Object.fromEntries(new FormData(event.target).entries());
+    const resposta = await postJSON('/api/auth/login', dados);
+    salvarUsuario(resposta.usuario);
+    box.innerHTML = '<div class="alert alert-success">Login realizado com sucesso. Redirecionando...</div>';
+    setTimeout(() => window.location.href = '/', 700);
+  } catch (error) {
+    box.innerHTML = `<div class="alert alert-error">${error.message}</div>`;
+  }
+});
+</script>
+<%- include('partials/footer') %>

@@ -1,0 +1,38 @@
+<%- include('partials/header', { title }) %>
+
+<section class="hero">
+  <h1>Bem-vindo ao GLAZED</h1>
+  <p>Uma plataforma para localizar pontos de coleta, registrar descartes recicláveis e acompanhar indicadores de impacto ambiental.</p>
+  <div class="btn-group">
+    <a class="btn btn-primary" href="/pontos">Ver Pontos de Coleta</a>
+    <a class="btn btn-secondary" href="/descarte">Registrar Descarte</a>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Como funciona</h2>
+  <div class="grid grid-3">
+    <article class="card">
+      <h3>Encontre pontos</h3>
+      <p>Localize os pontos de coleta mais próximos de você e filtre por cidade ou nome.</p>
+    </article>
+    <article class="card">
+      <h3>Registre descartes</h3>
+      <p>Informe a categoria e a quantidade reciclada para acompanhar sua contribuição ao meio ambiente.</p>
+    </article>
+    <article class="card">
+      <h3>Acompanhe relatórios</h3>
+      <p>Visualize métricas detalhadas sobre o volume de reciclagem e o impacto gerado pela comunidade.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Indicadores gerais</h2>
+  <div class="grid grid-4" id="homeKpis">
+    <div class="card kpi"><strong>...</strong><span>Carregando</span></div>
+  </div>
+</section>
+
+<script src="/js/relatorios.js"></script>
+<%- include('partials/footer') %>

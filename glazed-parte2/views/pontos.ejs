@@ -1,0 +1,53 @@
+<%- include('partials/header', { title }) %>
+
+<section class="hero">
+  <h1>Pontos de Coleta</h1>
+  <p>Consulte e gerencie os pontos de coleta disponíveis em nossa rede.</p>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Pesquisar pontos</h2>
+  <div class="filters">
+    <input type="text" id="busca" placeholder="Buscar por nome">
+    <select id="cidade">
+      <option value="">Todas as cidades</option>
+    </select>
+    <button class="btn btn-primary" id="btnBuscar">Buscar</button>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr><th>Nome</th><th>Cidade</th><th>Endereço</th><th>Tipos aceitos</th><th>Horário</th><th>Ações</th></tr>
+      </thead>
+      <tbody id="pontosTabela"><tr><td colspan="6">Carregando...</td></tr></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Cadastrar novo ponto</h2>
+  <div class="form-container">
+    <div id="mensagemPonto"></div>
+    <form id="pontoForm">
+      <input type="hidden" id="pontoId">
+      <div class="grid grid-2">
+        <div class="form-group"><label>Nome</label><input id="nome" required></div>
+        <div class="form-group"><label>Cidade</label><input id="cidadeForm" required></div>
+        <div class="form-group"><label>Estado</label><input id="estado" maxlength="2" value="SP" required></div>
+        <div class="form-group"><label>Bairro</label><input id="bairro" required></div>
+      </div>
+      <div class="form-group"><label>Endereço</label><input id="endereco" required></div>
+      <div class="grid grid-2">
+        <div class="form-group"><label>Contato</label><input id="contato"></div>
+        <div class="form-group"><label>Horário</label><input id="horario" required></div>
+      </div>
+      <div class="form-group"><label>Tipos aceitos separados por vírgula</label><input id="tiposAceitos" placeholder="Plástico, Vidro, Papel" required></div>
+      <button class="btn btn-primary" type="submit">Salvar ponto</button>
+      <button class="btn btn-secondary" type="button" id="limparPonto">Limpar</button>
+    </form>
+  </div>
+</section>
+
+<script src="/js/pontos.js"></script>
+<%- include('partials/footer') %>
